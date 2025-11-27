@@ -27,8 +27,110 @@ To develop a Python program that implements a Circular Queue:
 ---
 
 ## 💻 Program:
-Add Code Here
+
+class CircularQueue:
+
+ def __init__(self, size):
+ 
+ self.size = size
+ 
+ self.queue = [None] * size
+ 
+ self.front = -1
+ 
+ self.rear = -1
+ 
+ def enqueue(self, value):
+ 
+ if ((self.rear + 1) % self.size == self.front):
+ 
+ print("Queue is Full!")
+ 
+ elif self.front == -1:
+ 
+ self.front = 0
+ 
+ self.rear = 0
+ 
+ self.queue[self.rear] = value
+ 
+ else:
+ 
+ self.rear = (self.rear + 1) % self.size
+ 
+ self.queue[self.rear] = value
+ 
+ def dequeue(self):
+ 
+ if self.front == -1:
+ 
+ print("Queue is Empty!")
+ 
+ return None
+ 
+ removed_value = self.queue[self.front]
+ 
+ if self.front == self.rear:
+ 
+ self.front = -1
+ 
+ self.rear = -1
+ 
+ else:
+ 
+ self.front = (self.front + 1) % self.size
+ 
+ return removed_value
+ 
+ def display(self):
+ 
+ if self.front == -1:
+ 
+ print("Queue is Empty!")
+ 
+ else:
+ 
+ print("Queue contents:")
+ 
+ i = self.front
+ 
+ while True:
+ 
+ print(self.queue[i], end=" ")
+ 
+ if i == self.rear:
+ 
+ break
+ 
+ i = (i + 1) % self.size
+ 
+ print()
+
+cq = CircularQueue(5)
+
+for i in range(5):
+
+ val = input(f"Enter value {i+1}: ")
+ 
+ cq.enqueue(val)
+
+print("\nInitial queue:")
+
+cq.display()
+
+print("\nRemoving 3 elements from the queue:")
+
+for i in range(3):
+
+ removed = cq.dequeue()
+
+
 
 ### Output:
 
+<img width="75" height="112" alt="image" src="https://github.com/user-attachments/assets/6741805d-ed93-47c8-b3ca-5696e154b04d" />
+<img width="65" height="89" alt="image" src="https://github.com/user-attachments/assets/d46cfaeb-70d7-4612-9d38-951fc7e411b9" />
+
 ## Result:
+
+Thus the program has been successfully executed
