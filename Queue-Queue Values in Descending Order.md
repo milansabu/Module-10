@@ -23,6 +23,29 @@ To write a Python program to:
 
 ## 🧪 Program: 
 
+from queue import PriorityQueue
+
+que=PriorityQueue()
+
+n=int(input())
+
+l=[]
+
+for i in range(n):
+
+l.append(int(input()))
+
+for number in l:
+
+que.put((-number, number))
+
+while not que.empty():
+
+print(que.get()[1])
+
 ### Output:
+<img width="300" height="203" alt="image" src="https://github.com/user-attachments/assets/2f176747-e351-4cb6-b52b-3b43d59ea910" />
 
 ## Result:
+
+Thus the program has been successfully executed
